@@ -26,7 +26,7 @@ allprojects {
         }
     }
 
-    def targetJavaVersion = 21
+    def targetJavaVersion = 8
     java {
         def javaVersion = JavaVersion.toVersion(targetJavaVersion)
         sourceCompatibility = javaVersion
@@ -47,12 +47,12 @@ allprojects {
 // Main module dependencies
 dependencies {
     implementation project(':slime-common')
-    compileOnly("io.papermc.paper:paper-api:1.21.5-R0.1-SNAPSHOT")
+    compileOnly("com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT")
 }
 
 tasks {
     runServer {
-        minecraftVersion("1.21")
+        minecraftVersion("1.16.5")
     }
 
     processResources {
@@ -91,7 +91,7 @@ tasks {
             def jarFile = archiveFile.get().asFile
             println "JAR built: ${jarFile.absolutePath}"
             println "JAR size: ${String.format('%.1f', jarFile.length() / 1024.0)} KB"
-            println "This JAR works on both Paper and Spigot servers with Java 21!"
+            println "This JAR works on both Paper and Spigot servers!"
         }
     }
 

@@ -45,19 +45,45 @@ public class SlimeCommand implements CommandExecutor, TabCompleter {
         }
 
         switch (args[0].toLowerCase()) {
-            case "nuke" -> handleNuke(sender, args);
-            case "disable" -> handleDisableSpawning(sender, args);
-            case "enable" -> handleEnableSpawning(sender, args);
-            case "info" -> handleInfo(sender, args);
-            case "confirm" -> handleConfirm(sender);
-            case "exempt" -> handleExempt(sender, args);
-            case "unexempt" -> handleUnexempt(sender, args);
-            case "reload" -> handleReload(sender);
-            case "config" -> handleConfig(sender, args);
-            case "setflat" -> handleSetFlat(sender, args);
-            case "unsetflat" -> handleUnsetFlat(sender, args);
-            case "listflat" -> handleListFlat(sender);
-            default -> sendHelp(sender);
+            case "nuke":
+                handleNuke(sender, args);
+                break;
+            case "disable":
+                handleDisableSpawning(sender, args);
+                break;
+            case "enable":
+                handleEnableSpawning(sender, args);
+                break;
+            case "info":
+                handleInfo(sender, args);
+                break;
+            case "confirm":
+                handleConfirm(sender);
+                break;
+            case "exempt":
+                handleExempt(sender, args);
+                break;
+            case "unexempt":
+                handleUnexempt(sender, args);
+                break;
+            case "reload":
+                handleReload(sender);
+                break;
+            case "config":
+                handleConfig(sender, args);
+                break;
+            case "setflat":
+                handleSetFlat(sender, args);
+                break;
+            case "unsetflat":
+                handleUnsetFlat(sender, args);
+                break;
+            case "listflat":
+                handleListFlat(sender);
+                break;
+            default:
+                sendHelp(sender);
+                break;
         }
         return true;
     }

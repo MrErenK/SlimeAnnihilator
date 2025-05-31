@@ -27,9 +27,9 @@ A powerful Minecraft plugin for managing slime spawning and removal, specificall
 
 ## Requirements
 
-- **Minecraft Version**: 1.21+
+- **Minecraft Version**: 1.16+
 - **Server Software**: Paper or Spigot
-- **Java Version**: 21+
+- **Java Version**: 8+
 
 ## Commands
 

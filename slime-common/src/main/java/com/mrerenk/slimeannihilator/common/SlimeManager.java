@@ -3,10 +3,10 @@ package com.mrerenk.slimeannihilator.common;
 import com.mrerenk.slimeannihilator.common.config.SlimeConfig;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
-import org.bukkit.generator.WorldInfo;
 import org.bukkit.plugin.Plugin;
 
 public class SlimeManager {
@@ -99,39 +99,51 @@ public class SlimeManager {
         plugin.getLogger().info("Scanning worlds for flat world detection...");
 
         // Get all worlds and log them
-        var allWorlds = plugin.getServer().getWorlds();
+        List<World> allWorlds = plugin.getServer().getWorlds();
+        List<String> worldNames = allWorlds
+            .stream()
+            .map(World::getName)
+            .collect(java.util.stream.Collectors.toList());
         plugin
             .getLogger()
             .info(
-                "Found " +
-                allWorlds.size() +
-                " worlds to check: " +
-                allWorlds.stream().map(WorldInfo::getName).toList()
+                "Found " + allWorlds.size() + " worlds to check: " + worldNames
             );
 
-        var flatWorlds = allWorlds.stream().filter(this::isFlatWorld).toList();
+        List<World> flatWorlds = allWorlds
+            .stream()
+            .filter(this::isFlatWorld)
+            .collect(java.util.stream.Collectors.toList());
 
+        List<String> flatWorldNames = flatWorlds
+            .stream()
+            .map(World::getName)
+            .collect(java.util.stream.Collectors.toList());
         plugin
             .getLogger()
             .info(
                 "Detected " +
                 flatWorlds.size() +
                 " flat worlds: " +
-                flatWorlds.stream().map(WorldInfo::getName).toList()
+                flatWorldNames
             );
 
-        var eligibleWorlds = flatWorlds
+        List<World> eligibleWorlds = flatWorlds
             .stream()
             .filter(world -> !isWorldExempt(world))
-            .toList();
+            .collect(java.util.stream.Collectors.toList());
 
+        List<String> eligibleWorldNames = eligibleWorlds
+            .stream()
+            .map(World::getName)
+            .collect(java.util.stream.Collectors.toList());
         plugin
             .getLogger()
             .info(
                 "Found " +
                 eligibleWorlds.size() +
                 " eligible flat worlds (after exemptions): " +
-                eligibleWorlds.stream().map(WorldInfo::getName).toList()
+                eligibleWorldNames
             );
 
         if (eligibleWorlds.isEmpty()) {

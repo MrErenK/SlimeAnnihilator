@@ -1,7 +1,7 @@
 name: SlimeAnnihilator
 version: "${version}"
 main: com.mrerenk.slimeAnnihilator.SlimeAnnihilator
-api-version: "1.21"
+api-version: "1.16"
 load: STARTUP
 authors: [mrerenk]
 description: Advanced slime management plugin for flat worlds and more
