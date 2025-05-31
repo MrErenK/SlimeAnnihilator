@@ -1,0 +1,3 @@
+rootProject.name = 'SlimeAnnihilator'
+
+include 'slime-common'

@@ -1,0 +1,39 @@
+# SlimeAnnihilator Configuration
+# This plugin manages slime spawning and removal across your server
+
+# General Settings
+auto-remove-on-startup: true # Remove slimes from flat worlds when server starts
+prevent-spawning-in-flat-worlds: true # Prevent NATURAL slimes from spawning in flat worlds
+require-confirmation-for-non-flat-worlds: true # Require confirmation when nuking non-flat worlds
+confirmation-timeout-seconds: 30 # How long confirmations are valid (seconds)
+debug-messages: false # Enable debug logging
+
+# Spawn Prevention Settings
+# These settings control specific spawn methods and can override flat world restrictions
+prevent-egg-spawning: false # Prevent slimes from spawn eggs (overrides flat world setting)
+prevent-command-spawning: false # Prevent slimes from /summon commands (overrides flat world setting)
+prevent-custom-spawning: false # Prevent slimes spawned by plugins/custom sources (overrides flat world setting)
+
+# IMPORTANT:
+# - If prevent-spawning-in-flat-worlds is true, natural slime spawning is blocked in flat worlds
+# - If prevent-egg-spawning is false, spawn eggs will work even in flat worlds
+# - If prevent-command-spawning is false, /summon commands will work even in flat worlds
+# - Manual disable/enable commands (/slimes disable) always take precedence over everything
+
+# Flat Worlds Management
+# List worlds that should be treated as "flat worlds" for slime management
+# The plugin will also try to auto-detect flat worlds, but manual configuration is more reliable
+flat-worlds:
+  # - "world_flat"
+  # - "creative"
+  # - "plots"
+  # - "build"
+
+# World Management
+# Worlds listed here will be completely exempt from all slime management
+exempt-worlds:
+  # - "my_special_world"
+  # - "creative_world"
+
+# Worlds where slime spawning is manually disabled
+worlds-with-spawning-disabled: []

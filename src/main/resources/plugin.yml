@@ -1,0 +1,25 @@
+name: SlimeAnnihilator
+version: "${version}"
+main: com.mrerenk.slimeAnnihilator.SlimeAnnihilator
+api-version: "1.21"
+load: STARTUP
+authors: [mrerenk]
+description: Advanced slime management plugin for flat worlds and more
+folia-supported: false
+
+commands:
+  slimes:
+    description: Main slime management command
+    usage: /slimes <nuke|disable|enable|info|exempt|unexempt|confirm|reload|config|setflat|unsetflat|listflat> [world]
+    permission: slimeannihilator.use
+
+permissions:
+  slimeannihilator.use:
+    description: Allows use of basic slime management commands
+    default: op
+  slimeannihilator.admin:
+    description: Allows use of administrative commands (config, reload)
+    default: op
+  slimeannihilator.exempt:
+    description: Allows managing world exemptions
+    default: op
